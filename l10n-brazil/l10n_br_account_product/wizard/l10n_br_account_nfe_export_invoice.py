@@ -119,9 +119,10 @@ class L10nBrAccountNfeExportInvoice(models.TransientModel):
                         self.env['ir.sequence'].get('nfe.export'),
                         data.file_type)
                 else:
-                    name = '%s%s-nfe.%s' % (
-                        time.strftime('%d-%m-%Y'),
+                    name = '%s_%s_001_%s-nfe.%s' % (
                         export_inv_numbers[0],
+                        company_ids.cnpj_cpf,
+                        time.strftime('%d-%m-%Y'),
                         data.file_type)
 
                 mod_serializer = __import__(
