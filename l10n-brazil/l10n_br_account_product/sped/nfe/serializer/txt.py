@@ -100,7 +100,7 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
             StrRegB['VerProc'] = '2.2.26'
 
             StrB = 'B|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\
-                |%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|\n' % (
+                |%s|%s|%s|%s|%s|%s|%s|%s|%s|\n' % (
                 StrRegB['cUF'], StrRegB['cNF'], StrRegB['NatOp'], StrRegB['mod'], 
                 StrRegB['serie'], StrRegB['nNF'], StrRegB['dhEmi'], StrRegB['dhSaiEnt'],
                 StrRegB['tpNF'], StrRegB['cMunFG'], StrRegB['TpImp'], StrRegB['TpEmis'], 
