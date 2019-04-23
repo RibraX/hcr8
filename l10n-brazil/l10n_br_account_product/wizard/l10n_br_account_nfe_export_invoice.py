@@ -7,6 +7,7 @@ import time
 import base64
 from openerp import models, fields, api, _
 from openerp.exceptions import Warning as UserError
+from openerp.addons.l10n_br_base.tools.misc import punctuation_rm
 
 
 class L10nBrAccountNfeExportInvoice(models.TransientModel):
@@ -121,7 +122,7 @@ class L10nBrAccountNfeExportInvoice(models.TransientModel):
                 else:
                     name = '%s_%s_001_%s-nfe.%s' % (
                         export_inv_numbers[0],
-                        company_ids.cnpj_cpf,
+                        punctuation_rm(invoice.company_id.partner_id.cnpj_cpf,
                         time.strftime('%d-%m-%Y'),
                         data.file_type)
 
