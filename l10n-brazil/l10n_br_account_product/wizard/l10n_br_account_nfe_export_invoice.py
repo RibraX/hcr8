@@ -122,7 +122,7 @@ class L10nBrAccountNfeExportInvoice(models.TransientModel):
                 else:
                     name = '%s_%s_001_%s-nfe.%s' % (
                         export_inv_numbers[0],
-                        punctuation_rm(inv.company_id.partner_id.cnpj_cpf,
+                        punctuation_rm(inv.company_id.partner_id.cnpj_cpf),
                         time.strftime('%d-%m-%Y'),
                         data.file_type)
 
