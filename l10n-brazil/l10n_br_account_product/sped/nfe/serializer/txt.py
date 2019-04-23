@@ -38,7 +38,7 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
             'NatOp': (normalize('NFKD',
                                 unicode(inv.cfop_ids[0].small_name or ''))
                       .encode('ASCII', 'ignore')),
-            'indPag': inv.payment_term and inv.payment_term.indPag or '0',
+            #'indPag': inv.payment_term and inv.payment_term.indPag or '0',
             'mod': inv.fiscal_document_id.code,
             'serie': inv.document_serie_id.code,
             'nNF': inv.internal_number or '',
@@ -87,7 +87,7 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
             StrB = 'B|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\
             |%s|%s|%s|%s|%s|%s|\n' % (
                 StrRegB['cUF'], StrRegB['cNF'], StrRegB[
-                    'NatOp'], StrRegB['indPag'], StrRegB['mod'],
+                    'NatOp'], StrRegB['mod'],
                 StrRegB['serie'], StrRegB['nNF'], StrRegB[
                     'dhEmi'], StrRegB['dhSaiEnt'], StrRegB['hSaiEnt'],
                 StrRegB['tpNF'], StrRegB['idDest'], StrRegB[
@@ -106,8 +106,7 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
             StrB = 'B|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\
             |%s|%s|%s|\n' % (
                 StrRegB['cUF'], StrRegB['cNF'], StrRegB[
-                    'NatOp'], StrRegB['indPag'],
-                StrRegB['mod'], StrRegB['serie'], StrRegB[
+                    'NatOp'], StrRegB['mod'], StrRegB['serie'], StrRegB[
                     'nNF'], StrRegB['dEmi'], StrRegB['dSaiEnt'],
                 StrRegB['hSaiEnt'], StrRegB['tpNF'], StrRegB[
                     'cMunFG'], StrRegB['TpImp'], StrRegB['TpEmis'],
@@ -538,7 +537,7 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
             }
 
             StrRegI['NCM'] = punctuation_rm(
-                inv_line.fiscal_classification_id.name)
+                inv_line.fiscal_classification_id.code)[:8]
 
             if nfe_version == '4.00':
 
