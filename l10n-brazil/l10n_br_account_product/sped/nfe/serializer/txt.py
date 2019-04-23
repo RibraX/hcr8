@@ -85,17 +85,13 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
 
             # Modificado
             StrB = 'B|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\
-            |%s|%s|%s|%s|%s|%s|\n' % (
-                StrRegB['cUF'], StrRegB['cNF'], StrRegB[
-                    'NatOp'], StrRegB['mod'],
-                StrRegB['serie'], StrRegB['nNF'], StrRegB[
-                    'dhEmi'], StrRegB['dhSaiEnt'], StrRegB['hSaiEnt'],
-                StrRegB['tpNF'], StrRegB['idDest'], StrRegB[
-                    'cMunFG'], StrRegB['TpImp'], StrRegB['TpEmis'],
-                StrRegB['cDV'], StrRegB['tpAmb'], StrRegB[
-                    'finNFe'], StrRegB['indFinal'], StrRegB['indPres'],
-                StrRegB['procEmi'], StrRegB['VerProc'], StrRegB['dhCont'],
-                StrRegB['xJust'])
+                |%s|%s|%s|%s|%s|\n' % (
+                StrRegB['cUF'], StrRegB['cNF'], StrRegB['NatOp'], StrRegB['mod'],
+                StrRegB['serie'], StrRegB['nNF'], StrRegB['dhEmi'], StrRegB['dhSaiEnt'], 
+                StrRegB['hSaiEnt'], StrRegB['tpNF'], StrRegB['idDest'], StrRegB['cMunFG'], 
+                StrRegB['TpImp'], StrRegB['TpEmis'], StrRegB['cDV'], StrRegB['tpAmb'], 
+                StrRegB['finNFe'], StrRegB['indFinal'], StrRegB['indPres'], StrRegB['procEmi'], 
+                StrRegB['VerProc'], StrRegB['dhCont'], StrRegB['xJust'])
 
         else:
             StrRegB['dEmi'] = inv.date_invoice or ''
@@ -103,16 +99,13 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
                 inv.date_in_out, '%Y-%m-%d %H:%M:%S').date()) or ''
             StrRegB['VerProc'] = '2.2.26'
 
-            StrB = 'B|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\
-            |%s|%s|%s|\n' % (
-                StrRegB['cUF'], StrRegB['cNF'], StrRegB[
-                    'NatOp'], StrRegB['mod'], StrRegB['serie'], StrRegB[
-                    'nNF'], StrRegB['dEmi'], StrRegB['dSaiEnt'],
-                StrRegB['hSaiEnt'], StrRegB['tpNF'], StrRegB[
-                    'cMunFG'], StrRegB['TpImp'], StrRegB['TpEmis'],
-                StrRegB['cDV'], StrRegB['tpAmb'], StrRegB[
-                    'finNFe'], StrRegB['procEmi'], StrRegB['VerProc'],
-                StrRegB['dhCont'], StrRegB['xJust'])
+            StrB = 'B|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\
+                |%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|\n' % (
+                StrRegB['cUF'], StrRegB['cNF'], StrRegB['NatOp'], StrRegB['mod'], 
+                StrRegB['serie'], StrRegB['nNF'], StrRegB['dEmi'], StrRegB['dSaiEnt'],
+                StrRegB['hSaiEnt'], StrRegB['tpNF'], StrRegB['cMunFG'], StrRegB['TpImp'], 
+                StrRegB['TpEmis'], StrRegB['cDV'], StrRegB['tpAmb'], StrRegB['finNFe'], 
+                StrRegB['procEmi'], StrRegB['VerProc'], StrRegB['dhCont'], StrRegB['xJust'])
 
         StrFile += StrB
 
