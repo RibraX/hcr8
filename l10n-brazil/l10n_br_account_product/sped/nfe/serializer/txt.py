@@ -543,7 +543,7 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
 
                 StrI = 'I|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\
                     |%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\
-                    |%s|%s|%s|%s|\n' % (
+                    |%s|%s|%s|%s|%s|%s|%s|\n' % (
                            StrRegI['CProd'], StrRegI['CEAN'], StrRegI['XProd'], StrRegI['NCM'], 
                            StrRegI['NVE'], StrRegI['CEST'], StrRegI['indEscala'], StrRegI['CNPJFab'],
                            StrRegI['cBenef'], StrRegI['EXTIPI'], StrRegI['CFOP'], StrRegI['UCom'],
