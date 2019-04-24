@@ -536,7 +536,7 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
             if nfe_version == '4.00':
 
                 StrRegI['NVE'] = ''
-                StrRegI['indEscala'] = ''
+                StrRegI['indEscala'] = 'S'
                 StrRegI['CNPJFab'] = ''
                 StrRegI['cBenef'] = ''
                 StrRegI['nFCI'] = ''
@@ -544,19 +544,13 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
                 StrI = 'I|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\
                     |%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\
                     |%s|%s|%s|%s|\n' % (
-                           StrRegI['CProd'], StrRegI['CEAN'],
-                           StrRegI['CEST'],
-                           StrRegI['XProd'], StrRegI['NCM'],
-                           StrRegI['NVE'], StrRegI['EXTIPI'],
-                           StrRegI['CFOP'], StrRegI['UCom'],
-                           StrRegI['QCom'], StrRegI['VUnCom'],
-                           StrRegI['VProd'], StrRegI['CEANTrib'],
-                           StrRegI['UTrib'], StrRegI['QTrib'],
-                           StrRegI['VUnTrib'], StrRegI['VFrete'],
-                           StrRegI['VSeg'], StrRegI['VDesc'],
-                           StrRegI['vOutro'], StrRegI['indTot'],
-                           StrRegI['xPed'], StrRegI['nItemPed'],
-                           StrRegI['nFCI'])
+                           StrRegI['CProd'], StrRegI['CEAN'], StrRegI['XProd'], StrRegI['NCM'], 
+                           StrRegI['NVE'], StrRegI['CEST'], StrRegI['indEscala'], StrRegI['CNPJFab'],
+                           StrRegI['cBenef'], StrRegI['EXTIPI'], StrRegI['CFOP'], StrRegI['UCom'],
+                           StrRegI['QCom'], StrRegI['VUnCom'], StrRegI['VProd'], StrRegI['CEANTrib'],
+                           StrRegI['UTrib'], StrRegI['QTrib'], StrRegI['VUnTrib'], StrRegI['VFrete'],
+                           StrRegI['VSeg'], StrRegI['VDesc'], StrRegI['vOutro'], StrRegI['indTot'],
+                           StrRegI['xPed'], StrRegI['nItemPed'], StrRegI['nFCI'])
             else:
                 StrI = 'I|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s'\
                        '|%s|%s|%s|%s|%s|\n' % (
