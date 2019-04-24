@@ -485,7 +485,8 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
 
             StrRegI = {
                 'CProd': CProd,
-                'CEAN': inv_line.product_id.ean13 or '',
+                'CEAN': inv_line.product_id.ean13 or 'SEM GTIN',
+                'CEST': punctuation_rm(inv_line.product_id.cest_id.code or ''),
                 'XProd': XProd,
                 'EXTIPI': '',
                 'CFOP': inv_line.cfop_id.code,
@@ -535,11 +536,16 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
             if nfe_version == '4.00':
 
                 StrRegI['NVE'] = ''
+                StrRegI['indEscala'] = ''
+                StrRegI['CNPJFab'] = ''
+                StrRegI['cBenef'] = ''
                 StrRegI['nFCI'] = ''
 
-                StrI = 'I|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s'\
-                       '|%s|%s|%s|%s|%s|%s|%s|\n' % (
+                StrI = 'I|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\
+                    |%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\
+                    |%s|%s|%s|%s|\n' % (
                            StrRegI['CProd'], StrRegI['CEAN'],
+                           StrRegI['CEST'],
                            StrRegI['XProd'], StrRegI['NCM'],
                            StrRegI['NVE'], StrRegI['EXTIPI'],
                            StrRegI['CFOP'], StrRegI['UCom'],
