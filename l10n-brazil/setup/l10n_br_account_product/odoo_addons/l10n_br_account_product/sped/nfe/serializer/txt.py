@@ -1212,9 +1212,12 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
         StrFile += StrW02
 
         # Modo do Frete:
-        # 0- Por conta do emitente;
-        # 1- Por conta do destinatário/remetente;
-        # 2- Por conta de terceiros; 9- Sem frete (v2.0)
+        # 0- Contratação do Frete por conta do Remetente (CIF);
+        # 1- Contratação do Frete por conta do Destinatário (FOB);
+        # 2- Contratação do Frete por conta de Terceiros; 
+        # 3- Transporte Próprio por conta do Remetente;
+        # 4- Transporte Próprio por conta do Destinatário;
+        # 9- Sem Ocorrência de Transporte (v4.0);
         try:
             if not inv.incoterm:
                 StrRegX0 = '9'
