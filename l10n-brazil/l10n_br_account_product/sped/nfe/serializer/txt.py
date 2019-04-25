@@ -1180,11 +1180,12 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
 
         StrFile += StrW
 
+        # TO DO vICMSDeson, VFCP, VFCPST, VFCPSTRet, VIPIDevolv 
         StrRegW02 = {
             'vBC': str("%.2f" % inv.icms_base),
             'vICMS': str("%.2f" % inv.icms_value),
             'vICMSDeson': '', #NT_2016_005_v1.50
-            'vFCP': '', #NT_2016_002_v1.42
+            'vFCP': '',  #NT_2016_002_v1.42
             'vBCST': str("%.2f" % inv.icms_st_base),
             'vST': str("%.2f" % inv.icms_st_value),
             'vFCPST': '',
@@ -1203,9 +1204,8 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
             'vTotTrib': str("%.2f" % inv.amount_total_taxes),
         }
 
-        StrW02 = 'W02|%s|%s|%s|%s|%s|%s|%s|%s|%s\
-            |%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|\n' % (
-            StrRegW02['vBC'], StrRegW02['vICMS'], StrRegW02[vICMSDeson], StrRegW02[vFCP],
+        StrW02 = 'W02|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|\n' % (
+            StrRegW02['vBC'], StrRegW02['vICMS'], StrRegW02['vICMSDeson'], StrRegW02['vFCP'],
             StrRegW02['vBCST'], StrRegW02['vST'], StrRegW02['vFCPST'], StrRegW02['vFCPSTRet'], 
             StrRegW02['vProd'], StrRegW02['vFrete'], StrRegW02['vSeg'], StrRegW02['vDesc'], 
             StrRegW02['vII'], StrRegW02['vIPI'], StrRegW02['vIPIDevol'], StrRegW02['vPIS'], 
@@ -1216,7 +1216,11 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
         # Modo do Frete:
         # 0- Por conta do emitente;
         # 1- Por conta do destinatário/remetente;
-        # 2- Por conta de terceiros; 9- Sem frete (v2.0)
+        # 3- ....
+        # 4- ....
+        # 2- Por conta de terceiros; 
+        # 9- Sem frete (v4.0)
+        #
         try:
             if not inv.incoterm:
                 StrRegX0 = '9'
