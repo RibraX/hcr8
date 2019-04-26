@@ -1375,7 +1375,7 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
                     value = line.credit
 
                 StrRegY07 = {
-                    'NDup': '{:0>3}.format(qt_NDup)', #(line.name)[-3:],
+                    'NDup': '{:0>3}'.format('qt_NDup'), #(line.name)[-3:],
                     'DVenc': line.date_maturity or inv.date_due or inv.date_invoice,
                     'VDup': str("%.2f" %value)
                     }
