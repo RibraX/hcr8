@@ -1354,10 +1354,10 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
             #vLiq.valor = str(invoice.amount_total)
 
             StrRegY02 = {
-                'nFat' : str(inv.invoice.internal_numer or ''),
-                'vOrigin' : str("%.2f" % inv.invoice.amount_total),
+                'nFat' : str(inv.internal_numer or ''),
+                'vOrigin' : str("%.2f" % inv.amount_total),
                 'vDesc' : str('0.00'),
-                'vLiq' : str("%.2f" % inv.invoice.amount_total),
+                'vLiq' : str("%.2f" % inv.amount_total),
                 }
             StrY02 = 'Y02|%s|%s|%s|%s|\n' % (
                 StrRegY02['nFat'], StrRegY02['vOrigin'], 
