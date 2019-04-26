@@ -1368,14 +1368,14 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
             #Y07|nDup|dVenc|vDup|
             qt_NDup = 0
             for line in inv.move_line_receivable_id:
-                qt_NDup +=           
+                qt_NDup += 1         
                 if inv.type in ('out_invoice', 'in_refund'):
                     value = line.debit
                 else:
                     value = line.credit
 
                 StrRegY07 = {
-                    'NDup':  str('{:0>3}.format(qt_NDup)') #(line.name)[-3:],
+                    'NDup':  str('{:0>3}.format(qt_NDup)'), #(line.name)[-3:],
                     'DVenc': line.date_maturity or inv.date_due or inv.date_invoice,
                     'VDup': str("%.2f" %value)
                     }
