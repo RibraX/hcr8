@@ -1339,12 +1339,33 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
 
             StrFile += StrX26
 
+        # Y01| - Grupo Cobrança
         if inv.journal_id.revenue_expense:
 
-            StrY = 'Y|\n'
+            StrY = 'Y01|\n'
 
             StrFile += StrY
+           
+            # Grupo Fatura
+            # Y02|nFat|vOrig|vDesc|vLiq|
+            #nFat.valor = str(invoice.internal_number or '')
+            #vOrig.valor = str(invoice.amount_total)
+            #vDesc.valor = str('0.00')
+            #vLiq.valor = str(invoice.amount_total)
 
+            StrRegY02 = {
+                'nFat' : str(inv.invoice.internal_numer or ''),
+                'vOrigin' : str("%.2f" % inv.invoice.amount_total),
+                'vDesc' : str('0.00'),
+                'vLiq' : str("%.2f" % inv.invoice.amount_total),
+                }
+            StrY02 = 'Y02|%s|%s|%s|%s|\n' % (
+                StrRegY02['nFat'], StrRegY02['vOrigin'], 
+                StrRegY02['vDesc'], StrRegY02['vLiq'] )    
+
+            StrFile += StrY02
+
+            #Y07|nDup|dVenc|vDup|
             for line in inv.move_line_receivable_id:
 
                 if inv.type in ('out_invoice', 'in_refund'):
@@ -1354,18 +1375,57 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
 
                 StrRegY07 = {
                     'NDup': line.name,
-                    'DVenc': line.date_maturity or inv.date_due or
-                    inv.date_invoice,
-                    'VDup': str(
-                        "%.2f" %
-                        value),
-                }
+                    'DVenc': line.date_maturity or inv.date_due or inv.date_invoice,
+                    'VDup': str("%.2f" %value)
+                    }
 
-                StrY07 = 'Y07|%s|%s|%s|\n' % (StrRegY07['NDup'], StrRegY07[
-                                              'DVenc'], StrRegY07['VDup'])
+                StrY07 = 'Y07|%s|%s|%s|\n' % (
+                    StrRegY07['NDup'], StrRegY07['DVenc'], StrRegY07['VDup'])
 
                 StrFile += StrY07
+                    
+            # YA| - Grupo Detalhamento do Pagamento
+            # YA01|detPag|indPag|tPag|vPag|card|
+            # YA04|tpIntegra|CNPJ|Band|cAut|
+            # YA09|vTroco|
+            StrYA = 'YA|\n'
 
+            StrFile += StrYA
+
+            StrRegYA01 = {
+                'detPag' : '',
+                'indPag' : '',
+                'tPag' : '',
+                'vPag' : '',
+            }
+
+            StrYA01 = 'YA01|%s|%s|%s|%s|\n' % (
+                StrRegYA01['detPag'], StrRegYA01['indPag'], 
+                StrRegYA01['tPag'], StrRegYA01['vPag'])
+
+            StrFile += StrYA01
+            
+            StrRegYA04 = {
+                'tpIntegra' : '',
+                'CNPJ' : '' ,
+                'Band' : '' ,
+                'cAut' : '',
+            }
+
+            StrYA04 = 'YA04|%s|%s|%s|%s|\n' % (
+                StrRegYA04['tpIntegra'], StrRegYA04['CNPJ'],
+                StrRegYA04['Band'], StrRegYA04['cAut'])
+            
+            StrFile += StrYA04
+            
+            StrRegYA09 = {
+                'vTroco' : str('0.00'),
+            }
+
+            StrYA09 = 'YA09|%s|\n' % (StrRegYA09['vTroco'])
+            
+            StrFile += StrYA09
+        
         StrRegZ = {
             'InfAdFisco': normalize(
                 'NFKD',
