@@ -10,17 +10,25 @@ class PaymentMode(models.Model):
     _inherit = 'payment.mode'
 
     type_sale_payment = fields.Selection(
-        [('00', u'00 - Duplicata'),
-         ('01', u'01 - Cheque'),
-         ('02', u'02 - Promissória'),
-         ('03', u'03 - Recibo'),
-         ('99', u'99 - Outros')],
-        string='Tipo SPED', required=True, default='99')
+        [('01', u'01 - Dinheiro'),
+         ('02', u'02 - Cheque'),
+         ('03', u'03 - Cartão de Crédito'),
+         ('04', u'04 - Cartão de Débito'),
+         ('05', u'05 - Crédito Loja'),
+         ('10', u'10 - Vale Alimentação'),
+         ('11', u'11 - Vale Refeição'),
+         ('12', u'12 - Vale Presente'),
+         ('13', u'13 - Vale Combustível'),
+         ('15', u'15 - Boleto Bancário'),
+         ('90', u'90= Sem pagamento'),
+         ('99', u'99=Outros')
+         ],
+        string='Tipo SPED', required=True, default='15')
 
     type_payment = fields.Selection(
-        [('00', u'00 - Duplicata'),
-         ('99', u'99 - Outros')],
-        string='Tipo SPED', required=True, default='99')
+        [('00', u'0 - Pagamento à Vista'),
+         ('99', u'1 - Pagamento à Prazo')],
+        string='Tipo SPED', required=True, default='0')
 
     internal_sequence_id = fields.Many2one('ir.sequence', u'Sequência')
     instrucoes = fields.Text(u'Instruções de cobrança')
