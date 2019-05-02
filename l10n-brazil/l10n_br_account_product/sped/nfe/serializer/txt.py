@@ -1389,6 +1389,11 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
             # YA01|detPag|indPag|tPag|vPag|card|
             # YA04|tpIntegra|CNPJ|Band|cAut|
             # YA09|vTroco|
+            #  self.detPag.tPag.valor = invoice.type_nf_payment
+            #  if invoice.type_nf_payment != '90':
+            #  self.detPag.vPag.valor = str(
+            #    "%.2f" % invoice.amount_total)
+
             StrYA = 'YA|\n'
 
             StrFile += StrYA
@@ -1396,7 +1401,7 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
             StrRegYA01 = {
                 'detPag' : '',
                 'indPag' : inv.payment_term and inv.payment_term.indPag or '0',
-                'tPag' : '2',
+                'tPag' : '02',
                 'vPag' : '',
             }
 
