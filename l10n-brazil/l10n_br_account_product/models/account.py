@@ -14,6 +14,7 @@ class AccountPaymentTerm(models.Model):
     indPag = fields.Selection(
         [('0', u'Pagamento à Vista'), ('1', u'Pagamento à Prazo'),
          ('2', 'Outros')], 'Forma de Pagamento', default='1')
+         
 
 
 class AccountTaxTemplate(models.Model):
