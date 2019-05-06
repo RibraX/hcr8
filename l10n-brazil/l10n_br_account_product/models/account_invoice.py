@@ -401,7 +401,6 @@ class AccountInvoice(models.Model):
         ('11', u'11 - Vale Refeição'),
         ('12', u'12 - Vale Presente'),
         ('13', u'13 - Vale Combustível'),
-        ('14', u'14 - Duplicata Mercantil'),
         ('15', u'15 - Boleto Bancário'),
         ('90', u'90 - Sem pagamento'),
         ('99', u'99 - Outros')

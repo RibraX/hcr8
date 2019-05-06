@@ -20,8 +20,8 @@ class PaymentMode(models.Model):
          ('12', u'12 - Vale Presente'),
          ('13', u'13 - Vale Combustível'),
          ('15', u'15 - Boleto Bancário'),
-         ('90', u'90= Sem pagamento'),
-         ('99', u'99=Outros')
+         ('90', u'90 - Sem pagamento'),
+         ('99', u'99 - Outros')
          ],
         string='Tipo SPED', required=True, default='15')
 
