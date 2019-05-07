@@ -11,27 +11,7 @@ class PaymentModeType(models.Model):
     _name = 'payment.mode.type'
     _description = 'Payment Mode Type'
 
-    #fields.Char('Name', size=64, required=True, help='Payment Type')
-    name = fields.Selection([
-        ('01', u'01 - Dinheiro'),
-        ('02', u'02 - Cheque'),
-        ('03', u'03 - Cartão de Crédito'),
-        ('04', u'04 - Cartão de Débito'),
-        ('06', u'05 - Crédito Loja'),
-        ('10', u'10 - Vale Alimentação'),
-        ('11', u'11 - Vale Refeição'),
-        ('12', u'12 - Vale Presente'),
-        ('13', u'13 - Vale Combustível'),
-        ('15', u'15 - Boleto Bancário'),
-        ('90', u'90 - Sem pagamento'),
-        ('99', u'99 - Outros')
-    ], string='Tipo de Pagamento da NF',
-        help=u'Obrigatório o preenchimento do Grupo Informações de Pagamento'
-             u' para NF-e e NFC-e. Para as notas com finalidade de Ajuste'
-             u' ou Devolução o campo Forma de Pagamento deve ser preenchido'
-             u' com 90 - Sem Pagamento.'
-    )
-
+    name = fields.Char('Name', size=64, required=True, help='Payment Type')
     code = fields.Char('Code', size=64, required=True,
                        help='Specify the Code for Payment Type')
     suitable_bank_types = fields.Many2many(
