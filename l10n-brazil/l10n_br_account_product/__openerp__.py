@@ -28,6 +28,7 @@
         'views/l10n_br_account_product_view.xml',
         'views/account_view.xml',
         'views/account_invoice_view.xml',
+        'views/account_payment_view.xml',
         'wizard/l10n_br_account_invoice_costs_ratio_view.xml',
         'views/nfe/account_invoice_nfe_view.xml',
         'views/res_partner_view.xml',
