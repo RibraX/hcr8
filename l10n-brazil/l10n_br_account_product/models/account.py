@@ -14,7 +14,7 @@ class AccountPaymentTerm(models.Model):
     indPag = fields.Selection(
         [('0', u'Pagamento à Vista'), ('1', u'Pagamento à Prazo'),
          ('2', 'Outros')], 'Forma de Pagamento', default='1')
-    type_nf_payment = fields.Selection([
+    tPag = fields.Selection([
             ('01', u'01 - Dinheiro'),
             ('02', u'02 - Cheque'),
             ('03', u'03 - Cartão de Crédito'),
@@ -24,7 +24,6 @@ class AccountPaymentTerm(models.Model):
             ('11', u'11 - Vale Refeição'),
             ('12', u'12 - Vale Presente'),
             ('13', u'13 - Vale Combustível'),
-            ('14', u'14 - Duplicata Mercantil'),
             ('15', u'15 - Boleto Bancário'),
             ('90', u'90 - Sem pagamento'),
             ('99', u'99 - Outros')
