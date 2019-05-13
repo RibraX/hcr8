@@ -10,7 +10,7 @@
             <field name="arch" type="xml">
                 <field name="active" position="after">
                     <field name="indPag" required="1"/>
-                    <field name='type_nf_payment' required='1'/>
+                    
                 </field>
             </field>
         </record>
