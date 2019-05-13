@@ -640,12 +640,12 @@ class AccountInvoice(models.Model):
         result['name'] = _('NF-e')
         return result
 
-    @api.onchange('payment_mode_id')
-    def onchange_payment_mode(self):
-        for record in self:
-            if record.payment_mode_id:
-                record.type_nf_payment = \
-                    record.payment_mode_id.type_nf_payment
+#    @api.onchange('payment_mode_id')
+#    def onchange_payment_mode(self):
+#        for record in self:
+#            if record.payment_mode_id:
+#                record.type_nf_payment = \
+#                    record.payment_mode_id.type_nf_payment
 
 
 class AccountInvoiceLine(models.Model):
