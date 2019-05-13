@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="account_payment.view_payment_mode_form"/>
             <field name="arch" type="xml">
                 <field name="partner_id" position="after">
-                    <field name="tPag"/>
+                    <field name="type_nf_payment"/>
                 </field>
             </field>
         </record>

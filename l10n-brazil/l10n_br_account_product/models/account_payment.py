@@ -9,7 +9,7 @@ from openerp import models, fields
 class PaymentMode(models.Model):
     _inherit = 'payment.mode'
 
-    tPag = fields.Selection([
+    type_nf_payment = fields.Selection([
         ('01', u'01 - Dinheiro'),
         ('02', u'02 - Cheque'),
         ('03', u'03 - Cartão de Crédito'),
