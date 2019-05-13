@@ -9,7 +9,7 @@ from openerp import models, fields
 class PaymentMode(models.Model):
     _inherit = 'payment.mode'
 
-    type_nf_payment = fields.Selection([
+    tPag = fields.Selection([
         ('01', u'01 - Dinheiro'),
         ('02', u'02 - Cheque'),
         ('03', u'03 - Cartão de Crédito'),
@@ -19,7 +19,6 @@ class PaymentMode(models.Model):
         ('11', u'11 - Vale Refeição'),
         ('12', u'12 - Vale Presente'),
         ('13', u'13 - Vale Combustível'),
-        ('14', u'14 - Duplicata Mercantil'),
         ('15', u'15 - Boleto Bancário'),
         ('90', u'90 - Sem pagamento'),
         ('99', u'99 - Outros')
