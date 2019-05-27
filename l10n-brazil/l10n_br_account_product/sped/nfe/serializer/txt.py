@@ -1401,7 +1401,7 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
             StrRegYA01 = {
                 'detPag' : '',
                 'indPag' : inv.payment_term and inv.payment_term.indPag or '0',
-                'vPag' : '',
+                'vPag' : str("%.2f" % inv.amount_total),
             }
 
             StrYA01 = 'YA01|%s|%s|%s|%s|\n' % (
