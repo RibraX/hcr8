@@ -1401,13 +1401,12 @@ def nfe_export(cr, uid, ids, nfe_environment='1',
             StrRegYA01 = {
                 'detPag' : '',
                 'indPag' : inv.payment_term and inv.payment_term.indPag or '0',
-                'tPag' : '02',
                 'vPag' : '',
             }
 
             StrYA01 = 'YA01|%s|%s|%s|%s|\n' % (
                 StrRegYA01['detPag'], StrRegYA01['indPag'], 
-                StrRegYA01['tPag'], StrRegYA01['vPag'])
+                StrRegYA01['vPag'])
 
             StrFile += StrYA01
             
