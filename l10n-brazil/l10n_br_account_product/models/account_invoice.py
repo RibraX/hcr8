@@ -389,8 +389,8 @@ class AccountInvoice(models.Model):
         store=True,
         digits=dp.get_precision('Account'),
         compute='_compute_amount')
-    payment_mode_id = fields.Many2one(
-        comodel_name='payment.mode', string="Payment Mode")
+    #payment_mode_id = fields.Many2one(
+    #    comodel_name='payment.mode', string="Payment Mode")
 
     @api.one
     @api.constrains('number')
