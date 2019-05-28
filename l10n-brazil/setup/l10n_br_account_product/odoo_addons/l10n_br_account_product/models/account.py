@@ -14,8 +14,10 @@ class AccountPaymentTerm(models.Model):
     indPag = fields.Selection(
         [('0', u'Pagamento à Vista'), ('1', u'Pagamento à Prazo'),
          ('2', 'Outros')], 'Indicador de Pagamento', default='1')
-
-
+    tPag = fields.Selection(
+        [('0', u'Pagamento à Vista'), ('1', u'Pagamento à Prazo'),
+         ('2', 'Outros')], 'Indicador de Pagamento', default='1')
+         
 class AccountTaxTemplate(models.Model):
     """Implement computation method in taxes"""
     _inherit = 'account.tax.template'
