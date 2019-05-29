@@ -16,8 +16,8 @@ class AccountPaymentTerm(models.Model):
          ('2', 'Outros')], 'Forma de Pagamento', default='1') 
     tPag =  fields.Selection(
         [('0', u'Pagamento tPag'), ('1', u'Pagamento tPag'),
-         ('2', 'Outros')], 'Forma de Pagamento', default='1')        
-
+         ('2', 'Outros')], 'Forma de Pagamento', default='1')  
+      
 class AccountTaxTemplate(models.Model):
     """Implement computation method in taxes"""
     _inherit = 'account.tax.template'

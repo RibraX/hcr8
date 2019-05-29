@@ -10,7 +10,9 @@
             <field name="arch" type="xml">
                 <field name="active" position="after">
                     <field name="indPag" required="1"/>
-					<field name="tPag"/>
+                </field>
+                 <field name="active" position="after">
+                    <field name="tPag"/>
                 </field>
             </field>
         </record>
