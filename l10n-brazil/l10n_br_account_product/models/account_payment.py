@@ -6,8 +6,8 @@
 from openerp import models, fields
 
 
-class PaymentMode(models.Model):
-    _inherit = 'payment.mode'
+class PaymentTerm(models.Model):
+    _inherit = 'account.payment.term'
 
     type_nf_payment = fields.Selection([
         ('01', u'01 - Dinheiro'),
